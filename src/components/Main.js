@@ -21,7 +21,7 @@ useEffect(() => {
         setUserDescription(user.about)
         setUserAvatar(user.avatar)
         setCards(card)
-    })
+    }).catch(err => console.log(err))
 }, [])
 
 
