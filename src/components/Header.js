@@ -1,11 +1,11 @@
 import React from "react";
 
 function Header() {
-    return (
+  return (
     <header className="header">
       <a className="header__logo" href="#" />
     </header>
-    )
+  )
 }
 
 export default Header

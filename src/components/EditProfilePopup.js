@@ -2,11 +2,11 @@ import React, { useContext, useEffect, useState } from "react"
 import PopupWithForm from "./PopupWithForm"
 import { CurrentUserContext } from "../contexts/CurrentUserContext"
 
-function EditProfilePopup({isOpen, onClose, onUpdateUser}) {
+function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
 
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
-    const currentUser = useContext(CurrentUserContext) 
+    const currentUser = useContext(CurrentUserContext)
 
     useEffect(() => {
         setName(currentUser.name || '');
@@ -22,26 +22,26 @@ function EditProfilePopup({isOpen, onClose, onUpdateUser}) {
     }
 
     function handleChange(e) {
-        const {name, value} = e.target;
+        const { name, value } = e.target;
         if (name === 'userName') {
             setName(value);
         } else if (name === 'about') {
             setDescription(value)
         }
-        
-        
+
+
     }
 
-    return(
+    return (
         <PopupWithForm
-          name='edit'
-          title='Редактировать профиль'
-          buttonText='Сохранить'
-          isOpen={isOpen}
-          onClose={onClose}
-          onSubmit={handleSubmit}
-          >
-          <input
+            name='edit'
+            title='Редактировать профиль'
+            buttonText='Сохранить'
+            isOpen={isOpen}
+            onClose={onClose}
+            onSubmit={handleSubmit}
+        >
+            <input
                 name="userName"
                 id="userName"
                 type="text"
@@ -52,9 +52,9 @@ function EditProfilePopup({isOpen, onClose, onUpdateUser}) {
                 required
                 placeholder="Ваше имя"
                 className="popup__input popup__input_el_name"
-              />
-              <span id="userName-error" className="popup__input-error" />
-              <input
+            />
+            <span id="userName-error" className="popup__input-error" />
+            <input
                 name="about"
                 id="about"
                 type="text"
@@ -65,12 +65,12 @@ function EditProfilePopup({isOpen, onClose, onUpdateUser}) {
                 required
                 placeholder="Сфера деятельности"
                 className="popup__input popup__input_el_job"
-              />
-              <span id="about-error" className="popup__input-error" />
-    
-          </PopupWithForm>
+            />
+            <span id="about-error" className="popup__input-error" />
+
+        </PopupWithForm>
     )
-    
+
 
 }
 
